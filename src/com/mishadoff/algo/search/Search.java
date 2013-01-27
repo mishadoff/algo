@@ -17,5 +17,5 @@ public interface Search {
 	 * @param elems
 	 * @returnindex of first found element in the list, -1 otherwise.
 	 */
-	<T> int search(List<T> elems, T elem);
+	<T> int search(List<T> elem, T e);
 }

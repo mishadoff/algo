@@ -33,6 +33,8 @@ public class BubbleSort<T> implements Sort<T>{
 		System.out.println("Unsorted: " + elem);
 		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR);
 		System.out.println("Sorted: " + elem);
+		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
+		System.out.println("Reverse sorted: " + elem);
 	}
 
 }

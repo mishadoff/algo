@@ -4,6 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Selection sort.
+ * 
+ * @author mishadoff
+ *
+ */
 public class SelectionSort implements Sort {
 	
 	@Override

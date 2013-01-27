@@ -4,6 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Insertion sort.
+ * 
+ * @author mishadoff
+ *
+ */
 public class InsertionSort implements Sort {
 	
 	@Override
@@ -21,12 +27,12 @@ public class InsertionSort implements Sort {
 	
 
 	public static void main(String[] args) {
-		Sort bubbleSort = new InsertionSort();
+		Sort sort = new InsertionSort();
 		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
 		System.out.println("Unsorted: " + elem);
-		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR);
+		sort.sort(elem, Comparators.INTEGER_COMPARATOR);
 		System.out.println("Sorted: " + elem);
-		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
+		sort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
 		System.out.println("Reverse sorted: " + elem);
 	}
 

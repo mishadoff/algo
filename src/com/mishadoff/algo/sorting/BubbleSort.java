@@ -9,7 +9,6 @@ import java.util.List;
  * 
  * @author mishadoff
  *
- * @param <T> - type of sorted elements
  */
 public class BubbleSort implements Sort{
 	
@@ -28,12 +27,12 @@ public class BubbleSort implements Sort{
 	}
 	
 	public static void main(String[] args) {
-		Sort bubbleSort = new BubbleSort();
+		Sort sort = new BubbleSort();
 		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
 		System.out.println("Unsorted: " + elem);
-		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR);
+		sort.sort(elem, Comparators.INTEGER_COMPARATOR);
 		System.out.println("Sorted: " + elem);
-		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
+		sort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
 		System.out.println("Reverse sorted: " + elem);
 	}
 

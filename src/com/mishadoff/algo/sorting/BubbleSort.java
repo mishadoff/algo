@@ -11,10 +11,10 @@ import java.util.List;
  *
  * @param <T> - type of sorted elements
  */
-public class BubbleSort<T> implements Sort<T>{
-
+public class BubbleSort implements Sort{
+	
 	@Override
-	public void sort(List<T> elem, Comparator<T> comp) {
+	public <T> void sort(List<T> elem, Comparator<T> comp) {
 		for (int k = 0; k < elem.size(); k++) {
 			for (int i = 0; i < elem.size() - 1; i++) {
 				int cmp = comp.compare(elem.get(i), elem.get(i + 1));
@@ -28,7 +28,7 @@ public class BubbleSort<T> implements Sort<T>{
 	}
 	
 	public static void main(String[] args) {
-		Sort<Integer> bubbleSort = new BubbleSort<>();
+		Sort bubbleSort = new BubbleSort();
 		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
 		System.out.println("Unsorted: " + elem);
 		bubbleSort.sort(elem, Comparators.INTEGER_COMPARATOR);

@@ -10,6 +10,6 @@ import java.util.List;
  * @author mishadoff
  *
  */
-public interface Sort<T> {
-	void sort(List<T> elem, Comparator<T> comp);
+public interface Sort {
+	<T> void sort(List<T> elem, Comparator<T> comp);
 }

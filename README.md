@@ -1,9 +1,7 @@
-algo
-====
+## algo
 
 One place for algorithms
 
-Sorting
-===
-
-* Bubble Sort
+* Sorting (com.mishadoff.algo.sorting)
+** Algorithms
+*** Bubble Sort

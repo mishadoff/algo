@@ -25,4 +25,20 @@ public final class Comparators {
 			return (o2 > o1) ? 1 : o2 < o1 ? -1 : 0;
 		}
 	};
+	
+	/* String case sensitive comparator */
+	public final static Comparator<String> STRING_COMPARATOR = new Comparator<String>() {
+		@Override
+		public int compare(String o1, String o2) {
+			return o1.compareTo(o2);
+		}
+	};
+	
+	/* String case insensitive comparator */
+	public final static Comparator<String> STRING_COMPARATOR_CASE_INSENSITIVE = new Comparator<String>() {
+		@Override
+		public int compare(String o1, String o2) {
+			return o1.compareToIgnoreCase(o2);
+		}
+	};
 }

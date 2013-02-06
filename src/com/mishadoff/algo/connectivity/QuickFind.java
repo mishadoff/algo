@@ -23,9 +23,11 @@ public class QuickFind implements Connectivity {
 	
 	@Override
 	public void union(int i, int j) {
+		int aid = connections[i];
+		int bid = connections[j];
 		for (int k = 0; k < connections.length; k++) {
-			if (connections[k] == connections[i]) {
-				connections[k] = connections[j];
+			if (connections[k] == aid) {
+				connections[k] = bid;
 			}
 		}
 	}
@@ -38,15 +40,14 @@ public class QuickFind implements Connectivity {
 	// --------------------- TEST
 
 	public static void main(String[] args) {
-		Connectivity con = new QuickFind(5);
-			con.union(0, 1);
-			con.union(1, 3);
-			con.union(2, 4);
-		System.out.println(con.isConnected(0, 4));
-		System.out.println(con.isConnected(0, 3));
-		System.out.println(con.isConnected(0, 2));
-			con.union(4, 1);
-		System.out.println(con.isConnected(0, 4));
-		System.out.println(con.isConnected(0, 2));
+		Connectivity con = new QuickFind(10);
+		//6-3 3-7 4-0 3-8 9-6 5-0
+			con.union(6, 3);
+			con.union(3, 7);
+			con.union(4, 0);
+			con.union(3, 8);
+			con.union(9, 6);
+			con.union(5, 0);
+		System.out.println(con.isConnected(1, 1));
 	}
 }

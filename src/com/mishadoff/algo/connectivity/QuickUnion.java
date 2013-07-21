@@ -44,10 +44,8 @@ public class QuickUnion implements Connectivity {
         }
         return i;
     }
-
     
     // --------------------- TEST
-
     public static void main(String[] args) {
         Connectivity con = new QuickUnion(10);
         //6-3 3-7 4-0 3-8 9-6 5-0
@@ -57,6 +55,7 @@ public class QuickUnion implements Connectivity {
             con.union(3, 8);
             con.union(9, 6);
             con.union(5, 0);
+            con.union(5, 1);
         System.out.println(con.isConnected(0, 3));
     }
 }

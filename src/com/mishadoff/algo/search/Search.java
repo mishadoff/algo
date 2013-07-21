@@ -18,8 +18,8 @@ public interface Search {
 	 * Search for element in the specified list.<br>
 	 * Elements equality based on their `equals` method implementation. 
 	 * 
-	 * @param elems
-	 * @returnindex of first found element in the list, -1 otherwise.
+	 * @param elem
+	 * @return index of first found element in the list, -1 otherwise.
 	 */
 	<T> int search(List<T> elem, T e);
 	
@@ -27,8 +27,8 @@ public interface Search {
 	 * Search for element in the specified list.<br>
 	 * Comparator must be specified for comparison based search algorithms
 	 * 
-	 * @param elems
-	 * @returnindex of first found element in the list, -1 otherwise.
+	 * @param elem
+	 * @return index of first found element in the list, -1 otherwise.
 	 */
 	<T> int search(List<T> elem, T e, Comparator<T> comp);
 }

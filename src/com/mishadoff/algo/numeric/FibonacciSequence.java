@@ -13,19 +13,23 @@ public class FibonacciSequence implements Sequence<BigInteger> {
 		return this.currentIdx;
 	}
 	
-	@Override
-	public void reset() {
-		this.currentIdx = 0;
-	}
-	
 	public BigInteger next() {
 		if (currentIdx < 2) {
-			currentIdx++;
 			return BigInteger.ONE;
 		}
 		BigInteger result = prev1.add(prev2);
 			prev1 = prev2;
 			prev2 = result;
+			currentIdx++;
 		return result;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static void main(String[] args) {
+		// usage example
+		Sequence seq = new FibonacciSequence();
+		for (int i = 0; i < 1000; i++) {
+			System.out.println(seq.next());
+		}
 	}
 }

@@ -25,15 +25,4 @@ public class BubbleSort implements Sort{
 			}
 		}
 	}
-	
-	public static void main(String[] args) {
-		Sort sort = new BubbleSort();
-		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
-		System.out.println("Unsorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR);
-		System.out.println("Sorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
-		System.out.println("Reverse sorted: " + elem);
-	}
-
 }

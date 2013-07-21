@@ -2,6 +2,10 @@
 
 One place for algorithms
 
+*Requires Java 8*
+
+### Included
+
 * Sorting (`com.mishadoff.algo.sorting`)
   * [Bubble Sort](http://en.wikipedia.org/wiki/Bubble_sort)
   * [Insertion Sort](http://en.wikipedia.org/wiki/Insertion_sort)

@@ -11,26 +11,26 @@ import java.util.List;
 /**
  * @author mishadoff
  */
-public class BubbleSortTest {
+public class BogoSortTest {
 
-    private static final int DEFAULT_LIST_SIZE = 10_000;
+    private static final int DEFAULT_LIST_SIZE = 5;
 
     private Sort sort;
 
     @Before
     public void setUp() {
-        sort = new BubbleSort();
+        sort = new BogoSort();
     }
 
     @Test
-    public void bubbleSortSortedIntegers() {
+    public void bogoSortSortedIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
         Assert.assertEquals(input, GeneratorUtils.range(DEFAULT_LIST_SIZE));
     }
 
     @Test
-    public void bubbleSortReverseSortedIntegers() {
+    public void bogoSortReverseSortedIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         Collections.reverse(input);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
@@ -38,7 +38,7 @@ public class BubbleSortTest {
     }
 
     @Test
-    public void bubbleSortShuffledIntegers() {
+    public void bogoSortShuffledIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         Collections.shuffle(input);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
@@ -46,11 +46,11 @@ public class BubbleSortTest {
     }
 
     @Test
-    public void bubbleSortStrings() {
-        List<String> input = GeneratorUtils.names();
+    public void bogoSortStrings() {
+        List<String> input = GeneratorUtils.names().subList(0, 5);
         Collections.shuffle(input);
         sort.sort(input, Comparators.STRING_COMPARATOR);
-        Assert.assertEquals(input, GeneratorUtils.names());
+        Assert.assertEquals(input, GeneratorUtils.names().subList(0, 5));
     }
 
 }

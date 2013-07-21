@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author mishadoff
  */
-public class BubbleSortTest {
+public class SelectionSortTest {
 
     private static final int DEFAULT_LIST_SIZE = 10_000;
 
@@ -19,18 +19,18 @@ public class BubbleSortTest {
 
     @Before
     public void setUp() {
-        sort = new BubbleSort();
+        sort = new SelectionSort();
     }
 
     @Test
-    public void bubbleSortSortedIntegers() {
+    public void selectionSortSortedIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
         Assert.assertEquals(input, GeneratorUtils.range(DEFAULT_LIST_SIZE));
     }
 
     @Test
-    public void bubbleSortReverseSortedIntegers() {
+    public void selectionSortReverseSortedIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         Collections.reverse(input);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
@@ -38,7 +38,7 @@ public class BubbleSortTest {
     }
 
     @Test
-    public void bubbleSortShuffledIntegers() {
+    public void selectionSortShuffledIntegers() {
         List<Integer> input = GeneratorUtils.range(DEFAULT_LIST_SIZE);
         Collections.shuffle(input);
         sort.sort(input, Comparators.INTEGER_COMPARATOR);
@@ -46,7 +46,7 @@ public class BubbleSortTest {
     }
 
     @Test
-    public void bubbleSortStrings() {
+    public void selectionSortStrings() {
         List<String> input = GeneratorUtils.names();
         Collections.shuffle(input);
         sort.sort(input, Comparators.STRING_COMPARATOR);

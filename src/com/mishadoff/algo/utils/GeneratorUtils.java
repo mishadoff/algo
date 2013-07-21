@@ -1,8 +1,6 @@
 package com.mishadoff.algo.utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author mishadoff
@@ -12,7 +10,7 @@ public final class GeneratorUtils {
     private GeneratorUtils() { }
 
     public static List<Integer> range(int end) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         for (int i = 0; i < end; i++) {
             result.add(i);
         }

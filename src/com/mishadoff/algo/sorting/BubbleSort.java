@@ -1,6 +1,5 @@
 package com.mishadoff.algo.sorting;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -10,7 +9,7 @@ import java.util.List;
  * @author mishadoff
  *
  */
-public class BubbleSort implements Sort{
+public class BubbleSort implements Sort {
 	
 	@Override
 	public <T> void sort(List<T> elem, Comparator<T> comp) {

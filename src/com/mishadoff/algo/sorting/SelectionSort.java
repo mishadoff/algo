@@ -1,6 +1,5 @@
 package com.mishadoff.algo.sorting;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -28,15 +27,4 @@ public class SelectionSort implements Sort {
 			}
 		}
 	}
-	
-	public static void main(String[] args) {
-		Sort sort = new SelectionSort();
-		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
-		System.out.println("Unsorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR);
-		System.out.println("Sorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
-		System.out.println("Reverse sorted: " + elem);
-	}
-	
 }

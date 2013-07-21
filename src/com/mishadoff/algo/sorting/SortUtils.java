@@ -13,7 +13,6 @@ public final class SortUtils {
 	
 	private SortUtils() { }
 
-	// TODO add tests
 	public static <T> boolean isSorted(List<T> elem, Comparator<T> comp) {
 		boolean sorted = true;
 		for (int i = 0; i < elem.size() - 1; i++) {

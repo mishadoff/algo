@@ -1,7 +1,6 @@
 package com.mishadoff.algo.sorting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class MergeSort implements Sort {
 	 * @param b end of range 2
 	 */
 	private <T> void merge(List<T> elem, int a, int midPoint, int b, Comparator<T> comp) {
-		List<T> helpList = new ArrayList<T>();	// TODO possible to move help list out of local variable
+		List<T> helpList = new ArrayList<>();	// TODO possible to move help list out of local variable
 		
 		// copy elements into help list
 		for (int i = a; i <= b; i++) {
@@ -62,18 +61,4 @@ public class MergeSort implements Sort {
 			k++; i++;
 		}
 	}
-	
-	// --------------------- TEST
-	
-	public static void main(String[] args) {
-		Sort sort = new MergeSort();
-		List<Integer> elem = Arrays.asList(1, 4, 2, 9, 3, 8, 1, 2, 5, 6, 9, 2, 7);
-		System.out.println("Unsorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR);
-		System.out.println("Sorted: " + elem);
-		sort.sort(elem, Comparators.INTEGER_COMPARATOR_REVERSE);
-		System.out.println("Reverse sorted: " + elem);
-	}
-	
-	
 }

@@ -15,6 +15,7 @@ public class FibonacciSequence implements Sequence<BigInteger> {
 	
 	public BigInteger next() {
 		if (currentIdx < 2) {
+            currentIdx++;
 			return BigInteger.ONE;
 		}
 		BigInteger result = prev1.add(prev2);
@@ -28,7 +29,7 @@ public class FibonacciSequence implements Sequence<BigInteger> {
 	public static void main(String[] args) {
 		// usage example
 		Sequence seq = new FibonacciSequence();
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 10; i++) {
 			System.out.println(seq.next());
 		}
 	}

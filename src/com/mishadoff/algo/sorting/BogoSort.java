@@ -13,7 +13,8 @@ import java.util.List;
  *
  */
 public class BogoSort implements Sort {
-	
+
+    @Override
 	public <T> void sort(List<T> elem, Comparator<T> comp) {
 		while (!SortUtils.isSorted(elem, comp)) {
 			Collections.shuffle(elem);

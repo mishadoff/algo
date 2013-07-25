@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class PerformanceSortingTest {
 
-    private List<Integer> input;
-
     // Configuration
     private static final int LIST_SIZE = 10000;
 

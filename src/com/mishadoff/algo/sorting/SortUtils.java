@@ -25,5 +25,5 @@ public final class SortUtils {
 		}
 		return sorted;
 	}
-	
+
 }

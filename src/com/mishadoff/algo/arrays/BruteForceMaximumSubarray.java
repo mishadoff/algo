@@ -25,7 +25,8 @@ public class BruteForceMaximumSubarray implements MaximumSubarray {
                 }
             }
         }
-        return Arrays.copyOfRange(array, leftBoundary, rightBoundary + 1);
+        return (maxSum == 0) ? new int[0]
+                             : Arrays.copyOfRange(array, leftBoundary, rightBoundary + 1);
     }
 
     // --------------------- TEST

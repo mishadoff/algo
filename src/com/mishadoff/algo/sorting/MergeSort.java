@@ -5,59 +5,59 @@ import java.util.Comparator;
 import java.util.List;
 
 public class MergeSort implements Sort {
-	
+
 	@Override
-	public <T> void sort(List<T> elem, Comparator<T> comp) {
-		mergeSort(elem, 0, elem.size() - 1, comp);
+	public <T> void sort(T[] a, Comparator<T> comp) {
+		mergeSort(a, 0, a.length - 1, comp);
 	}
 	
 	/**
-	 * Recursive method for list sorting
+	 * Recursive method for array sorting
 	 * 
 	 */
-	private <T> void mergeSort(List<T> elem, int a, int b, Comparator<T> comp) {
-		if (b - a > 0) { // list consists of more than one element so split it
-			int midPoint = (a + b) / 2;
-			mergeSort(elem, a, midPoint, comp); 	// sort two sublists recursively
-			mergeSort(elem, midPoint + 1, b, comp);
+	private <T> void mergeSort(T[] a, int start, int end, Comparator<T> comp) {
+		if (end - start > 0) { // array consists of more than one element so split it
+			int midPoint = (start + end) / 2;
+			mergeSort(a, start, midPoint, comp); 	// sort two subarrays recursively
+			mergeSort(a, midPoint + 1, end, comp);
 			
-			merge(elem, a, midPoint, b, comp);
+			merge(a, start, midPoint, end, comp);
 		}
 	}
 	
 	/**
-	 * Merge two sorted lists into one sorted
+	 * Merge two sorted arrays into one sorted
 	 * 
-	 * @param a start of range 1
+	 * @param start start of range 1
 	 * @param midPoint end of range 1, start of range 2
-	 * @param b end of range 2
+	 * @param end end of range 2
 	 */
-	private <T> void merge(List<T> elem, int a, int midPoint, int b, Comparator<T> comp) {
+	private <T> void merge(T[] a, int start, int midPoint, int end, Comparator<T> comp) {
 		List<T> helpList = new ArrayList<>();	// TODO possible to move help list out of local variable
 		
 		// copy elements into help list
-		for (int i = a; i <= b; i++) {
-			helpList.add(elem.get(i));
+		for (int i = start; i <= end; i++) {
+			helpList.add(a[i]);
 		}
 		
 		// init pointers
-		int i = a;
+		int i = start;
 		int j = midPoint + 1;
-		int k = a;
+		int k = start;
 		
-		while (i <= midPoint && j <= b) {
-			if (comp.compare(helpList.get(i - a), helpList.get(j - a)) > 0) {
-				elem.set(k, helpList.get(j - a));
+		while (i <= midPoint && j <= end) {
+			if (comp.compare(helpList.get(i - start), helpList.get(j - start)) > 0) {
+				a[k] = helpList.get(j - start);
 				j++;
 			} else {
-				elem.set(k, helpList.get(i - a));
+				a[k] = helpList.get(i - start);
 				i++;
 			}
 			k++;
 		}
 		
 		while (i <= midPoint) {
-			elem.set(k, helpList.get(i - a));
+			a[k] = helpList.get(i - start);
 			k++; i++;
 		}
 	}

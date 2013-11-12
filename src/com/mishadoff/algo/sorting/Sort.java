@@ -11,5 +11,5 @@ import java.util.List;
  *
  */
 public interface Sort {
-	<T> void sort(List<T> elem, Comparator<T> comp);
+	<T> void sort(T[] a, Comparator<T> comp);
 }

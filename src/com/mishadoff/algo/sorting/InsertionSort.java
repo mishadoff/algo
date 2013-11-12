@@ -12,15 +12,15 @@ import java.util.List;
 public class InsertionSort implements Sort {
 	
 	@Override
-	public <T> void sort(List<T> elem, Comparator<T> comp) {
-		for (int k = 1; k < elem.size(); k++) {
-			T current = elem.get(k);
+	public <T> void sort(T[] a, Comparator<T> comp) {
+		for (int k = 1; k < a.length; k++) {
+			T current = a[k];
 			int i = k - 1;
-			while (i >= 0 && comp.compare(elem.get(i), current) > 0) {
-				elem.set(i + 1, elem.get(i));
+			while (i >= 0 && comp.compare(a[i], current) > 0) {
+				a[i + 1] = a[i];
 				i--;
 			}
-			elem.set(i + 1, current);
+			a[i + 1] = current;
 		}
 	}
 }

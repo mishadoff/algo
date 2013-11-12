@@ -12,14 +12,14 @@ import java.util.List;
 public class BubbleSort implements Sort {
 	
 	@Override
-	public <T> void sort(List<T> elem, Comparator<T> comp) {
-		for (int k = 0; k < elem.size(); k++) {
-			for (int i = 0; i < elem.size() - 1; i++) {
-				int cmp = comp.compare(elem.get(i), elem.get(i + 1));
+	public <T> void sort(T[] a, Comparator<T> comp) {
+		for (int k = 0; k < a.length; k++) {
+			for (int i = 0; i < a.length - 1; i++) {
+				int cmp = comp.compare(a[i], a[i + 1]);
 				if (cmp > 0) {
-					T tmp = elem.get(i);
-					elem.set(i, elem.get(i + 1));
-					elem.set(i + 1, tmp);
+					T tmp = a[i];
+					a[i] = a[i + 1];
+					a[i + 1] = tmp;
 				}
 			}
 		}

@@ -12,18 +12,18 @@ import java.util.List;
 public class SelectionSort implements Sort {
 	
 	@Override
-	public <T> void sort(List<T> elem, Comparator<T> comp) {
-		for (int i = 0; i < elem.size() - 1; i++) {
+	public <T> void sort(T[] a, Comparator<T> comp) {
+		for (int i = 0; i < a.length - 1; i++) {
 			int min = i;
-			for (int j = i + 1; j < elem.size(); j++) {
-				if (comp.compare(elem.get(j), elem.get(min)) < 0) {
+			for (int j = i + 1; j < a.length; j++) { // search for the min
+				if (comp.compare(a[j], a[min]) < 0) {
 					min = j;
 				}
 			}
 			if (i != min) { // swap
-				T e = elem.get(i);
-				elem.set(i, elem.get(min));
-				elem.set(min, e);
+				T e = a[i];
+				a[i] = a[min];
+				a[min] = e;
 			}
 		}
 	}

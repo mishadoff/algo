@@ -1,5 +1,6 @@
 package com.mishadoff.algo.sorting;
 
+import com.mishadoff.algo.utils.ArrayUtils;
 import com.mishadoff.algo.utils.GeneratorUtils;
 import com.mishadoff.algo.utils.Timer;
 import org.junit.Test;
@@ -28,7 +29,7 @@ public class PerformanceSortingTest {
         sortTest("Selection Sort [Sorted] : ", new SelectionSort(), getSorted());
     }
 
-    private List<Integer> getSorted() {
+    private Integer[] getSorted() {
         return GeneratorUtils.range(LIST_SIZE);
     }
 
@@ -40,10 +41,10 @@ public class PerformanceSortingTest {
         sortTest("Selection Sort [Reverse Sorted] : ", new SelectionSort(), getReverseSorted());
     }
 
-    private List<Integer> getReverseSorted() {
-        List<Integer> list = GeneratorUtils.range(LIST_SIZE);
-        Collections.reverse(list);
-        return list;
+    private Integer[] getReverseSorted() {
+        Integer[] a = GeneratorUtils.range(LIST_SIZE);
+        ArrayUtils.reverse(a);
+        return a;
     }
 
     @Test
@@ -54,13 +55,13 @@ public class PerformanceSortingTest {
         sortTest("Selection Sort [Random Sorted] : ", new SelectionSort(), getRandomSorted());
     }
 
-    private List<Integer> getRandomSorted() {
-        List<Integer> list = GeneratorUtils.range(LIST_SIZE);
-        Collections.shuffle(list);
-        return list;
+    private Integer[] getRandomSorted() {
+        Integer[] a = GeneratorUtils.range(LIST_SIZE);
+        ArrayUtils.shuffle(a);
+        return a;
     }
 
-    private void sortTest(String testMessage, Sort algorithm, List<Integer> input) {
+    private void sortTest(String testMessage, Sort algorithm, Integer[] input) {
         timer = new Timer();
         timer.start();
         algorithm.sort(input, Comparators.INTEGER_COMPARATOR);

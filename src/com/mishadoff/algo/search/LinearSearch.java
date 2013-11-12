@@ -7,10 +7,10 @@ import java.util.List;
 public class LinearSearch implements Search {
 
 	@Override
-	public <T> int search(List<T> elem, T e) {
+	public <T> int search(T[] elem, T e) {
 		int idx = NOT_FOUND;
-		for (int i = 0; i < elem.size(); i++) {
-			if (elem.get(i).equals(e)) {
+		for (int i = 0; i < elem.length; i++) {
+			if (elem[i].equals(e)) {
 				idx = i;
 				break;
 			} 
@@ -19,7 +19,7 @@ public class LinearSearch implements Search {
 	}
 	
 	@Override
-	public <T> int search(List<T> elem, T e, Comparator<T> comp) {
+	public <T> int search(T[] elem, T e, Comparator<T> comp) {
 		return search(elem, e);		// linear search not uses comparator
 	}
 	
@@ -27,8 +27,8 @@ public class LinearSearch implements Search {
 	
 	public static void main(String[] args) {
 		Search search = new LinearSearch();
-		List<String> names = Arrays.asList("alice", "bob", "cindy", "derek", "eugene", "cindy");
-		System.out.println("Names: " + names);
+		String[] names = {"alice", "bob", "cindy", "derek", "eugene", "cindy"};
+		System.out.println("Names: " + Arrays.toString(names));
 		String toFind = "cindy";
 		System.out.println("Search for [" + toFind + "]: idx = " + search.search(names, toFind));
 		toFind = "alex";

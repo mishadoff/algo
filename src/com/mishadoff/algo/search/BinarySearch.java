@@ -13,25 +13,25 @@ public class BinarySearch implements Search {
 	 * Input list must be sorted
 	 */
 	@Override
-	public <T> int search(List<T> elem, T e) {
+	public <T> int search(T[] elem, T e) {
 		throw new IllegalArgumentException("Call method with comparator!");
 	}
 	
 	@Override
-	public <T> int search(List<T> elem, T e, Comparator<T> comp) {
-		return binarySearch(elem, e, 0, elem.size() - 1, comp);
+	public <T> int search(T[] elem, T e, Comparator<T> comp) {
+		return binarySearch(elem, e, 0, elem.length - 1, comp);
 	}
 
-	private <T> int binarySearch(List<T> elem, T e, int a, int b, Comparator<T> comp) {
+	private <T> int binarySearch(T[] elem, T e, int a, int b, Comparator<T> comp) {
 		if (b < a) {
 			return NOT_FOUND;	// recursion stop condition
 		} else {
 			// split array in two parts
 			int midPoint = (a + b) / 2;
 
-			if (comp.compare(elem.get(midPoint), e) > 0) {					// mid element is greater
+			if (comp.compare(elem[midPoint], e) > 0) {					// mid element is greater
 				return binarySearch(elem, e, a, midPoint - 1, comp);
-			} else if (comp.compare(elem.get(midPoint), e) < 0) {			// mid element is smaller
+			} else if (comp.compare(elem[midPoint], e) < 0) {			// mid element is smaller
 				return binarySearch(elem, e, midPoint + 1, b, comp);
 			} else {		// element is found
 				return midPoint;
@@ -43,10 +43,10 @@ public class BinarySearch implements Search {
 	
 	public static void main(String[] args) {
 		Search search = new BinarySearch();
-		List<String> names = Arrays.asList("alice", "bob", "eugene", "cindy", "valeriy", "chris", "stewart", "alla");
+		String[] names = {"alice", "bob", "eugene", "cindy", "valeriy", "chris", "stewart", "alla"};
 		// list must be sorted
-		Collections.sort(names, Comparators.STRING_COMPARATOR);
-		System.out.println("Names: " + names);
+		Arrays.sort(names, Comparators.STRING_COMPARATOR);
+		System.out.println("Names: " + Arrays.toString(names));
 		String toFind = "cindy";
 		System.out.println("Search for [" + toFind + "]: idx = " + search.search(names, toFind, Comparators.STRING_COMPARATOR));
 		toFind = "alex";

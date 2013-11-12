@@ -1,7 +1,8 @@
-package com.mishadoff.algo.sorting;
+package com.mishadoff.algo.utils;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Class consists of different helper methods for sorting.
@@ -10,15 +11,12 @@ import java.util.List;
  *
  */
 public final class SortUtils {
-	
 	private SortUtils() { }
 
-	public static <T> boolean isSorted(List<T> elem, Comparator<T> comp) {
+	public static <T> boolean isSorted(T[] a, Comparator<T> comp) {
 		boolean sorted = true;
-		for (int i = 0; i < elem.size() - 1; i++) {
-			T e1 = elem.get(i);
-			T e2 = elem.get(i + 1);
-			if (comp.compare(e1, e2) > 0) {
+		for (int i = 0; i < a.length - 1; i++) {
+			if (comp.compare(a[i], a[i + 1]) > 0) {
 				sorted = false;
 				break;
 			}

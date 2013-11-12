@@ -9,21 +9,21 @@ public final class GeneratorUtils {
 
     private GeneratorUtils() { }
 
-    public static List<Integer> range(int end) {
-        List<Integer> result = new ArrayList<>();
+    public static Integer[] range(int end) {
+        Integer[] result = new Integer[end];
         for (int i = 0; i < end; i++) {
-            result.add(i);
+            result[i] = i;
         }
         return result;
     }
 
-    public static List<String> names() {
-        return Arrays.asList(
+    public static String[] names() {
+        return new String[] {
             "Alice", "Bob", "Cindy", "Derek", "Eugene", "Fred", "Garry",
             "Helen", "Ivan", "Jennifer", "Karl", "Lenny", "Margaret",
             "Nina", "Orwell", "Pete", "Quake", "Ryan", "Steve", "Tom",
             "Ulrich", "Vader", "Wayne", "Xen", "Yvonne", "Zorro"
-        );
+        };
     }
 
 }

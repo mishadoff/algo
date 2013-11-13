@@ -1,15 +1,16 @@
 package com.mishadoff.algo.data;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * @author mishadoff
  */
-public class MaxHeap {
-    private int[] data;
-    int heapSize;
+public class MaxHeap<T extends Comparable<? super T>> {
+    public T[] data;
+    public int heapSize;
 
-    public MaxHeap(int[] data) {
+    public MaxHeap(T[] data) {
         this.data = data;
         heapSize = data.length;
         // building max heap
@@ -22,14 +23,14 @@ public class MaxHeap {
         int left = left(index);
         int right = right(index);
         int largest = index;
-        if (left < heapSize && data[left] > data[index]) {
+        if (left < heapSize && data[left].compareTo(data[index]) > 0) {
             largest = left;
         }
-        if (right < heapSize && data[right] > data[largest]) {
+        if (right < heapSize && data[right].compareTo(data[largest]) > 0) {
             largest = right;
         }
         if (largest != index) {
-            int temp = data[index];
+            T temp = data[index];
             data[index] = data[largest];
             data[largest] = temp;
             heapify(largest);
@@ -55,7 +56,7 @@ public class MaxHeap {
     // TEST -------------
 
     public static void main(String[] args) {
-        MaxHeap heap = new MaxHeap(new int[] { 1, 10, 3, 14, 7, 4, 16, 9, 2, 8});
+        MaxHeap heap = new MaxHeap(new Integer[] { 1, 10, 3, 14, 7, 4, 16, 9, 2, 8});
         //MaxHeap heap = new MaxHeap(new int[] { 1, 10, 14, 7, 3, 5, 2});
         heap.print();
     }

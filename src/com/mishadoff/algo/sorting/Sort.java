@@ -10,6 +10,10 @@ import java.util.List;
  * @author mishadoff
  *
  */
-public interface Sort {
-	<T> void sort(T[] a, Comparator<T> comp);
+public abstract class Sort {
+	public abstract <T> void sort(T[] a, Comparator<T> comp);
+
+    public <T extends Comparable<? super T>> void sort(T[] a) {
+        sort(a, Comparators.natural());
+    }
 }

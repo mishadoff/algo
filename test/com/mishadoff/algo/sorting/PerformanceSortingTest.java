@@ -27,6 +27,7 @@ public class PerformanceSortingTest {
         sortTest("Insertion Sort [Sorted] : ", new InsertionSort(), getSorted());
         sortTest("Merge Sort [Sorted] : ", new MergeSort(), getSorted());
         sortTest("Selection Sort [Sorted] : ", new SelectionSort(), getSorted());
+        sortTest("Heap Sort [Sorted] : ", new HeapSort(), getSorted());
     }
 
     private Integer[] getSorted() {
@@ -39,6 +40,7 @@ public class PerformanceSortingTest {
         sortTest("Insertion Sort [Reverse Sorted] : ", new InsertionSort(), getReverseSorted());
         sortTest("Merge Sort [Reverse Sorted] : ", new MergeSort(), getReverseSorted());
         sortTest("Selection Sort [Reverse Sorted] : ", new SelectionSort(), getReverseSorted());
+        sortTest("Heap Sort [Reverse Sorted] : ", new HeapSort(), getReverseSorted());
     }
 
     private Integer[] getReverseSorted() {
@@ -53,6 +55,7 @@ public class PerformanceSortingTest {
         sortTest("Insertion Sort [Random Sorted] : ", new InsertionSort(), getRandomSorted());
         sortTest("Merge Sort [Random Sorted] : ", new MergeSort(), getRandomSorted());
         sortTest("Selection Sort [Random Sorted] : ", new SelectionSort(), getRandomSorted());
+        sortTest("Heap Sort [Random Sorted] : ", new HeapSort(), getRandomSorted());
     }
 
     private Integer[] getRandomSorted() {
@@ -64,7 +67,7 @@ public class PerformanceSortingTest {
     private void sortTest(String testMessage, Sort algorithm, Integer[] input) {
         timer = new Timer();
         timer.start();
-        algorithm.sort(input, Comparators.INTEGER_COMPARATOR);
+        algorithm.sort(input);
         timer.stop();
         System.out.println(testMessage + " " + timer.getTime());
     }

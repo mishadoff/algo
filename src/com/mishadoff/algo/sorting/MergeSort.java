@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MergeSort implements Sort {
+public class MergeSort extends Sort {
 
 	@Override
 	public <T> void sort(T[] a, Comparator<T> comp) {

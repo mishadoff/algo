@@ -13,7 +13,7 @@ import java.util.Comparator;
  * @author mishadoff
  *
  */
-public class BogoSort implements Sort {
+public class BogoSort extends Sort {
 
     @Override
 	public <T> void sort(T[] a, Comparator<T> comp) {

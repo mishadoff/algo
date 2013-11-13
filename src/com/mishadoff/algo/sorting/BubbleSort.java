@@ -9,7 +9,7 @@ import java.util.List;
  * @author mishadoff
  *
  */
-public class BubbleSort implements Sort {
+public class BubbleSort extends Sort {
 	
 	@Override
 	public <T> void sort(T[] a, Comparator<T> comp) {

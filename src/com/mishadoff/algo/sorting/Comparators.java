@@ -9,7 +9,7 @@ import java.util.Comparator;
  */
 public final class Comparators {
 	private Comparators() { }
-	
+
 	/* Integer comparator */
 	public final static Comparator<Integer> INTEGER_COMPARATOR = (a, b) -> a > b ? 1 : a < b ? -1 : 0;
 	/* Integer reverse comparator */
@@ -20,4 +20,9 @@ public final class Comparators {
 	public final static Comparator<String> STRING_COMPARATOR_REVERSE = (a, b) -> b.compareTo(a);
 	/* String case insensitive comparator */
 	public final static Comparator<String> STRING_COMPARATOR_CASE_INSENSITIVE = (a, b) -> a.compareToIgnoreCase(b);
+
+    // return natural order comparator
+    public static <T extends Comparable<? super T>> Comparator<T> natural() {
+        return (T o1, T o2) -> o1.compareTo(o2);
+    }
 }

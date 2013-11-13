@@ -9,7 +9,7 @@ import java.util.List;
  * @author mishadoff
  *
  */
-public class SelectionSort implements Sort {
+public class SelectionSort extends Sort {
 	
 	@Override
 	public <T> void sort(T[] a, Comparator<T> comp) {

@@ -22,7 +22,9 @@ public class SortTest {
             new QuickSort(),
             new MergeSort(),
             new InsertionSort(),
-            new HeapSort()
+            new HeapSort(),
+            new RadixSort(),
+            new BucketSort(10000, 20)
         };
     }
 

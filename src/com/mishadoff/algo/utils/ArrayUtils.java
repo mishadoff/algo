@@ -47,9 +47,13 @@ public final class ArrayUtils {
     }
 
     public static int[] random(int size) {
+        return random(size, 100);
+    }
+
+    public static int[] random(int size, int max) {
         int[] result = new int[size];
         for (int i = 0; i < size; i++) {
-            result[i] = r.nextInt(100);
+            result[i] = r.nextInt(max);
         }
         return result;
     }

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PerformanceSortingTest {
 
     // Configuration
-    private static final int SIZE = 10_000;
+    private static final int SIZE = 100_000;
     private Sort[] sorts;
 
     // Time measurement
@@ -27,7 +27,9 @@ public class PerformanceSortingTest {
                 new QuickSort(),
                 new MergeSort(),
                 new InsertionSort(),
-                new HeapSort()
+                new HeapSort(),
+                new RadixSort(),
+                new BucketSort(100000, 20)
         };
     }
 

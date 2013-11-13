@@ -6,6 +6,7 @@ import java.util.Arrays;
  * @author mishadoff
  */
 public class KadaneMaximumSubarray implements MaximumSubarray {
+
     @Override
     public int[] find(int[] array) {
         if (array.length == 0) return new int[0];

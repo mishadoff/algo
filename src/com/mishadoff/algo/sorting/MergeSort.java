@@ -1,5 +1,6 @@
 package com.mishadoff.algo.sorting;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -34,7 +35,7 @@ public class MergeSort extends Sort {
 	 */
 	private <T> void merge(T[] a, int start, int midPoint, int end, Comparator<T> comp) {
 		List<T> helpList = new ArrayList<>();	// TODO possible to move help list out of local variable
-		
+
 		// copy elements into help list
 		for (int i = start; i <= end; i++) {
 			helpList.add(a[i]);

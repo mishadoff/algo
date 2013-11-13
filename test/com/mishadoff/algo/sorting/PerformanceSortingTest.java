@@ -28,6 +28,7 @@ public class PerformanceSortingTest {
         sortTest("Merge Sort [Sorted] : ", new MergeSort(), getSorted());
         sortTest("Selection Sort [Sorted] : ", new SelectionSort(), getSorted());
         sortTest("Heap Sort [Sorted] : ", new HeapSort(), getSorted());
+        sortTest("Quick Sort [Sorted] : ", new QuickSort(), getSorted());
     }
 
     private Integer[] getSorted() {
@@ -41,6 +42,7 @@ public class PerformanceSortingTest {
         sortTest("Merge Sort [Reverse Sorted] : ", new MergeSort(), getReverseSorted());
         sortTest("Selection Sort [Reverse Sorted] : ", new SelectionSort(), getReverseSorted());
         sortTest("Heap Sort [Reverse Sorted] : ", new HeapSort(), getReverseSorted());
+        sortTest("Quick Sort [Reverse Sorted] : ", new QuickSort(), getReverseSorted());
     }
 
     private Integer[] getReverseSorted() {
@@ -56,6 +58,7 @@ public class PerformanceSortingTest {
         sortTest("Merge Sort [Random Sorted] : ", new MergeSort(), getRandomSorted());
         sortTest("Selection Sort [Random Sorted] : ", new SelectionSort(), getRandomSorted());
         sortTest("Heap Sort [Random Sorted] : ", new HeapSort(), getRandomSorted());
+        sortTest("Quick Sort [Random Sorted] : ", new QuickSort(), getRandomSorted());
     }
 
     private Integer[] getRandomSorted() {

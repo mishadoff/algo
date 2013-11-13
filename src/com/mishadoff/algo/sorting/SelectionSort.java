@@ -12,18 +12,16 @@ import java.util.List;
 public class SelectionSort extends Sort {
 	
 	@Override
-	public <T> void sort(T[] a, Comparator<T> comp) {
+	public void sort(int[] a) {
 		for (int i = 0; i < a.length - 1; i++) {
 			int min = i;
 			for (int j = i + 1; j < a.length; j++) { // search for the min
-				if (comp.compare(a[j], a[min]) < 0) {
+				if (a[j] < a[min]) {
 					min = j;
 				}
 			}
 			if (i != min) { // swap
-				T e = a[i];
-				a[i] = a[min];
-				a[min] = e;
+				swap(a, i, min);
 			}
 		}
 	}

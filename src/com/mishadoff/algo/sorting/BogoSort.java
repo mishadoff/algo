@@ -1,9 +1,6 @@
 package com.mishadoff.algo.sorting;
 
 import com.mishadoff.algo.utils.ArrayUtils;
-import com.mishadoff.algo.utils.SortUtils;
-
-import java.util.Comparator;
 
 /**
  * BogoSort is very ineffective sorting algorithm with O(Infinity) worst case.
@@ -16,8 +13,8 @@ import java.util.Comparator;
 public class BogoSort extends Sort {
 
     @Override
-	public <T> void sort(T[] a, Comparator<T> comp) {
-		while (!SortUtils.isSorted(a, comp)) {
+	public void sort(int[] a) {
+		while (!ArrayUtils.isSorted(a)) {
 			ArrayUtils.shuffle(a);
 		}
 	}

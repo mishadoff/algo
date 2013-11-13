@@ -6,11 +6,11 @@ import java.util.Collections;
 /**
  * @author mishadoff
  */
-public class MaxHeap<T extends Comparable<? super T>> {
-    public T[] data;
+public class MaxHeap {
+    public int[] data;
     public int heapSize;
 
-    public MaxHeap(T[] data) {
+    public MaxHeap(int[] data) {
         this.data = data;
         heapSize = data.length;
         // building max heap
@@ -23,14 +23,14 @@ public class MaxHeap<T extends Comparable<? super T>> {
         int left = left(index);
         int right = right(index);
         int largest = index;
-        if (left < heapSize && data[left].compareTo(data[index]) > 0) {
+        if (left < heapSize && data[left] > data[index]) {
             largest = left;
         }
-        if (right < heapSize && data[right].compareTo(data[largest]) > 0) {
+        if (right < heapSize && data[right] > data[largest]) {
             largest = right;
         }
         if (largest != index) {
-            T temp = data[index];
+            int temp = data[index];
             data[index] = data[largest];
             data[largest] = temp;
             heapify(largest);
@@ -52,13 +52,4 @@ public class MaxHeap<T extends Comparable<? super T>> {
     void print() {
         System.out.println(Arrays.toString(data));
     }
-
-    // TEST -------------
-
-    public static void main(String[] args) {
-        MaxHeap heap = new MaxHeap(new Integer[] { 1, 10, 3, 14, 7, 4, 16, 9, 2, 8});
-        //MaxHeap heap = new MaxHeap(new int[] { 1, 10, 14, 7, 3, 5, 2});
-        heap.print();
-    }
-
 }

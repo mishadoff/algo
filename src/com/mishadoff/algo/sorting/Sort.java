@@ -11,9 +11,12 @@ import java.util.List;
  *
  */
 public abstract class Sort {
-	public abstract <T> void sort(T[] a, Comparator<T> comp);
+	public abstract void sort(int[] a);
 
-    public <T extends Comparable<? super T>> void sort(T[] a) {
-        sort(a, Comparators.natural());
+    protected void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
+
 }

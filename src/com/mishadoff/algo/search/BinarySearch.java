@@ -1,55 +1,26 @@
 package com.mishadoff.algo.search;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import com.mishadoff.algo.sorting.Comparators;
-
 public class BinarySearch implements Search {
 
-	/**
-	 * Input list must be sorted
-	 */
 	@Override
-	public <T> int search(T[] elem, T e) {
-		throw new IllegalArgumentException("Call method with comparator!");
-	}
-	
-	@Override
-	public <T> int search(T[] elem, T e, Comparator<T> comp) {
-		return binarySearch(elem, e, 0, elem.length - 1, comp);
+	public int search(int[] a, int e) {
+		return binarySearch(a, e, 0, a.length - 1);
 	}
 
-	private <T> int binarySearch(T[] elem, T e, int a, int b, Comparator<T> comp) {
-		if (b < a) {
+	private int binarySearch(int[] a, int e, int start, int end) {
+		if (end < start) {
 			return NOT_FOUND;	// recursion stop condition
 		} else {
 			// split array in two parts
-			int midPoint = (a + b) / 2;
+			int midPoint = (start + end) / 2;
 
-			if (comp.compare(elem[midPoint], e) > 0) {					// mid element is greater
-				return binarySearch(elem, e, a, midPoint - 1, comp);
-			} else if (comp.compare(elem[midPoint], e) < 0) {			// mid element is smaller
-				return binarySearch(elem, e, midPoint + 1, b, comp);
-			} else {		// element is found
+			if (a[midPoint] > e) {					                    // mid element is greater
+				return binarySearch(a, e, start, midPoint - 1);
+			} else if (a[midPoint] < e) {			                    // mid element is smaller
+				return binarySearch(a, e, midPoint + 1, end);
+			} else {		                                            // element is found
 				return midPoint;
 			}	
 		}
-	}
-	
-	// --------------------- TEST
-	
-	public static void main(String[] args) {
-		Search search = new BinarySearch();
-		String[] names = {"alice", "bob", "eugene", "cindy", "valeriy", "chris", "stewart", "alla"};
-		// list must be sorted
-		Arrays.sort(names, Comparators.STRING_COMPARATOR);
-		System.out.println("Names: " + Arrays.toString(names));
-		String toFind = "cindy";
-		System.out.println("Search for [" + toFind + "]: idx = " + search.search(names, toFind, Comparators.STRING_COMPARATOR));
-		toFind = "alex";
-		System.out.println("Search for [" + toFind + "]: idx = " + search.search(names, toFind, Comparators.STRING_COMPARATOR));
 	}
 }

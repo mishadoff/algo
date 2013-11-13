@@ -12,14 +12,11 @@ import java.util.List;
 public class BubbleSort extends Sort {
 	
 	@Override
-	public <T> void sort(T[] a, Comparator<T> comp) {
+	public void sort(int[] a) {
 		for (int k = 0; k < a.length; k++) {
 			for (int i = 0; i < a.length - 1; i++) {
-				int cmp = comp.compare(a[i], a[i + 1]);
-				if (cmp > 0) {
-					T tmp = a[i];
-					a[i] = a[i + 1];
-					a[i + 1] = tmp;
+				if (a[i] > a[i + 1]) {
+					swap(a, i, i + 1);
 				}
 			}
 		}

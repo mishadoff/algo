@@ -12,11 +12,11 @@ import java.util.List;
 public class InsertionSort extends Sort {
 	
 	@Override
-	public <T> void sort(T[] a, Comparator<T> comp) {
+	public void sort(int[] a) {
 		for (int k = 1; k < a.length; k++) {
-			T current = a[k];
+			int current = a[k];
 			int i = k - 1;
-			while (i >= 0 && comp.compare(a[i], current) > 0) {
+			while (i >= 0 && a[i] > current) {
 				a[i + 1] = a[i];
 				i--;
 			}

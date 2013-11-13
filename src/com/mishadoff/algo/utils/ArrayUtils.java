@@ -10,20 +10,55 @@ public final class ArrayUtils {
 
     private ArrayUtils() { }
 
-    public static <T> void shuffle(T[] a) {
+    public static <T> void shuffle(int[] a) {
         for (int i = a.length - 1; i > 0; i--) {
             int index = r.nextInt(i + 1);
-            T temp = a[index];
+            int temp = a[index];
             a[index] = a[i];
             a[i] = temp;
         }
     }
 
-    public static <T> void reverse(T[] a) {
+    public static void reverse(int[] a) {
         for (int i = 0; i < a.length / 2; i++) {
-            T temp = a[i];
+            int temp = a[i];
             a[i] = a[a.length - i - 1];
             a[a.length - i - 1] = temp;
         }
+    }
+
+    public static boolean isSorted(int[] a) {
+        boolean sorted = true;
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                sorted = false;
+                break;
+            }
+        }
+        return sorted;
+    }
+
+    public static int[] range(int end) {
+        int[] result = new int[end];
+        for (int i = 0; i < end; i++) {
+            result[i] = i;
+        }
+        return result;
+    }
+
+    public static int[] random(int size) {
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = r.nextInt(100);
+        }
+        return result;
+    }
+
+    public static int[] copy(int[] a) {
+        int[] result = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            result[i] = a[i];
+        }
+        return result;
     }
 }

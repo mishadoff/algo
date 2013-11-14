@@ -29,7 +29,8 @@ public class PerformanceSortingTest {
                 new InsertionSort(),
                 new HeapSort(),
                 new RadixSort(),
-                new BucketSort(100000, 20)
+                new BucketSort(100000, 20), // maximum value, number of buckets
+                new ExternalMergeSort(1000) // RAM size
         };
     }
 

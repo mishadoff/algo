@@ -4,7 +4,8 @@ import com.mishadoff.algo.utils.ArrayUtils;
 
 /**
  * BogoSort is very ineffective sorting algorithm with O(Infinity) worst case.
- * 
+ * Average is O(n * n!)
+ *
  * WARNING: DONT USE IT IN PRACTICE, JUST FOR DEMONSTRATION PURPOSES
  * 
  * @author mishadoff

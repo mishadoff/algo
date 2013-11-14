@@ -13,7 +13,7 @@ public class QuickSort extends Sort {
     private void quickSort(int[] a, int start, int end) {
         if (end - start > 0) {
             // select pivot
-            int pivotIndex = selectPivot(a, start, end);
+            int pivotIndex = selectPivot(a, start, end); // TODO fix
             int pivotValue = a[pivotIndex];
             // partitioning around the pivot
             int rightSide = end;

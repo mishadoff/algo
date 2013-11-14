@@ -10,7 +10,7 @@ public final class ArrayUtils {
 
     private ArrayUtils() { }
 
-    public static <T> void shuffle(int[] a) {
+    public static void shuffle(int[] a) {
         for (int i = a.length - 1; i > 0; i--) {
             int index = r.nextInt(i + 1);
             int temp = a[index];
@@ -64,5 +64,11 @@ public final class ArrayUtils {
             result[i] = a[i];
         }
         return result;
+    }
+
+    public static void clear(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            a[i] = 0;
+        }
     }
 }

@@ -24,7 +24,8 @@ public class SortTest {
             new InsertionSort(),
             new HeapSort(),
             new RadixSort(),
-            new BucketSort(10000, 20)
+            new BucketSort(10000, 20),
+            new ExternalMergeSort(200)
         };
     }
 

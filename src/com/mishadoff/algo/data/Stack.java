@@ -9,8 +9,10 @@ public class Stack {
     private int[] data;
     private int stackSize;
 
+    private final static int MINIMUM = 4;
+
     public Stack() {
-        data = new int[4];
+        data = new int[MINIMUM];
         stackSize = 0;
     }
 
@@ -35,7 +37,7 @@ public class Stack {
         if (stackSize == 0) throw new RuntimeException("Stack is empty");
         int e = data[stackSize - 1];
         stackSize--;
-        if (stackSize <= data.length / 3 && stackSize > 0) {
+        if (stackSize <= data.length / 3 && stackSize > 0 && data.length > MINIMUM) {
             grow(data.length / 2);
         }
         return e;

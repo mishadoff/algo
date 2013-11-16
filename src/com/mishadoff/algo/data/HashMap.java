@@ -9,7 +9,7 @@ public class HashMap<K, V> {
     private double loadFactor = 0.75;
 
     HashMap() {
-        data = new Entry[4];
+        data = new Entry[8];
         size = 0;
     }
 
@@ -53,12 +53,18 @@ public class HashMap<K, V> {
     public void remove(K key) {
         int bucket = bucketIndex(key);
         Entry<K, V> next = data[bucket];
+        Entry<K, V> prev = null;
         while (next != null) {
             if (next.key.equals(key)) {
-                next = next.next;
+                if (prev != null) {
+                    prev.next = next.next;
+                } else {
+                    data[bucket] = next.next;
+                }
                 size--;
                 break;
             }
+            prev = next;
             next = next.next;
         }
     }
@@ -79,13 +85,13 @@ public class HashMap<K, V> {
      * @return
      */
     private int bucketIndex(K key) {
-        return Math.abs(key.hashCode()) % data.length;
+        return ((key.hashCode() % data.length) + data.length) % data.length; // to avoid negative values
     }
 
     class Entry<K,V> {
         K key;
         V value;
-        Entry next;
+        Entry<K,V> next;
 
         Entry(K key, V value) {
             this.key = key;
@@ -120,9 +126,16 @@ public class HashMap<K, V> {
         map.put("clojure", "compojure3");
         map.put("clojure", "compojure4");
         map.put("qwerty", "Boo");
+        map.put("Finita", "La Comedia");
+        map.put("Cry", "Me A River");
+        map.put("Justin", "Kills");
+        map.put("Machete", "Kills");
+        map.put("Django", "Unchained");
+        map.put("The", "Godfather");
+        map.put("Shawshunk", "Redemption");
         //System.out.println(map.get("qwerty"));
-        map.remove("ffff"); // FIXME remove not working!!!
-        map.remove("qwerty");
+        //map.remove("ffff"); // FIXME remove not working!!!
+        map.remove("Django");
         map.print();
         System.out.println(map.size());
         System.out.println(map.get("qwerty"));

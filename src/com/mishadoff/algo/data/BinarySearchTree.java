@@ -93,6 +93,8 @@ public class BinarySearchTree<T> {
 
     /* Different Traversal Strategies */
 
+    // TODO to utils
+    // TODO level order
     public void inorder() {
         inorder(root);
         System.out.println("");
@@ -144,6 +146,39 @@ public class BinarySearchTree<T> {
 
     }
 
+    /* not needed to be a part of BST class */
+
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node<T> node) {
+        if (node == null) return true;
+
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+
+        return (Math.abs(leftHeight - rightHeight) <= 1)
+                && isBalanced(node.left)
+                && isBalanced(node.right);
+    }
+
+    private int height(Node<T> node) {
+        if (node == null) return 0;
+        return 1 + Math.max(height(node.left), height(node.right));
+    }
+
+    public boolean isBST() {
+        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBST(Node<T> node, int from, int to) {
+        if (node == null) return true;
+        return node.key > from && node.key < to
+                && isBST(node.left, from, node.key)
+                && isBST(node.right, node.key, to);
+    }
+
     public static void main(String[] args) {
         BinarySearchTree<String> bst = new BinarySearchTree<>();
         bst.insert(16, "16");
@@ -151,7 +186,7 @@ public class BinarySearchTree<T> {
         bst.insert(24, "24");
         bst.insert(8, "8");
         bst.insert(19, "19");
-        bst.insert(20, "20");
+        /*bst.insert(20, "20");
         bst.insert(28, "28");
         bst.insert(5, "5");
         bst.insert(11, "11");
@@ -159,7 +194,7 @@ public class BinarySearchTree<T> {
         bst.insert(30, "30");
         bst.insert(18, "18");
         bst.insert(21, "21");
-        bst.insert(22, "22");
+        bst.insert(22, "22");*/
         //
         System.out.println(bst.find(8)); // soul
         System.out.println(bst.find(-1)); // null
@@ -168,7 +203,7 @@ public class BinarySearchTree<T> {
         //System.out.println("Preorder: "); bst.preorder();
         //System.out.println("Postorder: "); bst.postorder();
 
-        bst.delete(11);
+        /*bst.delete(11);
         System.out.println("Inorder: "); bst.inorder();
         bst.delete(8);
         System.out.println("Inorder: "); bst.inorder();
@@ -176,8 +211,10 @@ public class BinarySearchTree<T> {
         bst.delete(20);
         System.out.println("PRE: "); bst.preorder();
         bst.delete(19);
-        System.out.println("PRE: "); bst.preorder();
+        System.out.println("PRE: "); bst.preorder();*/
 
+        System.out.println(bst.isBST());
+        System.out.println(bst.isBalanced());
 
 /*
         bst.delete(20);

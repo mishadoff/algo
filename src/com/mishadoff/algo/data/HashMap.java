@@ -8,7 +8,7 @@ public class HashMap<K, V> {
     private int size;
     private double loadFactor = 0.75;
 
-    HashMap() {
+    public HashMap() {
         data = new Entry[8];
         size = 0;
     }
